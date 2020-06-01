@@ -1,2 +1,0 @@
-# vClub
-Club Management System
