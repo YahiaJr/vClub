@@ -8,41 +8,42 @@
 <body>
 <div class="header">
     <div>
-        <a href="index.php" id="logo"><img src="images/logo.png" alt="logo"></a>
+        <a href="index_members.php" id="logo"><img src="images/logo.png" alt="logo"></a>
         <ul>
             <li class="selected">
-                <a href="index.php"><span>H</span>ome</a>
+                <a href="index_members.php"><span>H</span>ome</a>
             </li>
             <li>
-                <a href="contact.php"><span>C</span>ontact</a>
+                <a href="contact_member.php"><span>C</span>ontact Management</a>
             </li>
             <li>
-                <a href="about.php"><span>A</span>bout</a>
+                <a href="search_member.php"><span>T</span>ime-table</a>
             </li>
-            <li>
-                <a href="application.php"><span>R</span>egister</a>
-            </li>
-            <li>
-                <a href="staff.php"><span>L</span>ogin</a>
-            </li>
+            <?php
+                session_start();
+                if (isset($_SESSION['email']))
+                    echo " <li><a href='../models/logout.php'>Logout</a></li> ";
+                echo '<li class="user-profile"><a href="#">' . $_SESSION['email'] . '</a></li>';
+            ?>
         </ul>
-
     </div>
-
 </div>
 <div class="body">
-    <?php
-        include '../controllers/cn.php';
-    ?>
+    <?php include '../controllers/cn.php'; ?>
+
     <div>
         <div class="featured">
-            <img src="images/camping.jpg" alt="">
+            <img src="images/member.jpeg" alt="" width="596px" height="375px">
             <div>
                 <div>
-                    <h3><span>B</span>E <span>A</span> <span>M</span>EMBR <span>T</span>ODAY!</h3>
+                    <h3 style="margin-top: 7px"><span>H</span>ey! <span>C</span>heck <span>O</span>ur <span>N</span>ews!
+                    </h3>
                     <p>
-                        You can regester in our club system ,if you join us you can participate in more function that
-                        will help you
+                        Soon, we are going to release the next features in our club website that includes:<br><br>
+                        <strong style="margin-left: 9px">•</strong> Activities Time-table.<br>
+                        <strong style="margin-left: 9px">•</strong> Membership renewal Offers.<br>
+                        <strong style="margin-left: 9px">•</strong> Parties &amp Trips schedules<br>
+                        <strong style="margin-left: 9px">•</strong> Performance improvements.<br>
                     </p>
                 </div>
             </div>
@@ -51,7 +52,7 @@
             <div>
                 <div>
                     <div class="section">
-                        <h2>WHY CHOOSE US?</h2>
+                        <h2>Welcome Back!</h2>
                         <p>
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
                             been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
@@ -78,18 +79,8 @@
                                     Lorem Ipsum is dummy text.
                                 </p>
                             </li>
-                            <li>
-                                <p>
-                                    Lorem Ipsum is dummy text.
-                                </p>
-                            </li>
                         </ul>
                         <ul class="last">
-                            <li>
-                                <p>
-                                    Lorem Ipsum is dummy text.
-                                </p>
-                            </li>
                             <li>
                                 <p>
                                     Lorem Ipsum is dummy text.
@@ -271,8 +262,8 @@
             then pick from the suggested side dishes, desserts or drinks to round out your 500-calorie meal.
         </details>
     </div>
-
 </div>
-<?php include 'footer.php'; ?>
+
+<?php include './footer.php'; ?>
 </body>
 </html>

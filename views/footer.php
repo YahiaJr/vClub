@@ -21,6 +21,18 @@
     </div>
     
     <div class="flogo">
-    echo "<a href="index.php" id="logo"><img style="margin-top: -60px" src="images/logo.png" alt="logo"></a>";
+        <?php //Go to Home Page From footer logo
+                switch (basename($_SERVER['PHP_SELF'])) {
+                    //member pages
+                    case "index_members.php":
+                    case "contact_member.php":
+                    case "search_member.php":
+                        echo '<a href="index_members.php" id="logo"><img style="margin-top: -60px" src="images/logo.png" alt="logo"></a>';
+                        break;
+                    //default
+                    default:
+                        echo '<a href="index.php" id="logo"><img style="margin-top: -60px" src="images/logo.png" alt="logo"></a>';
+                }
+            ?>
     </div>
 </div>
