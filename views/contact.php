@@ -31,6 +31,9 @@
 </div>
 <div class="body">
 
+    <?php
+        include '../controllers/cn.php';
+    ?>
     <div class="contact">
         <div>
             <div>

@@ -31,6 +31,9 @@
 
 </div>
 <div class="body">
+    <?php
+        include '../controllers/cn.php';
+    ?>
     <div>
         <div class="featured">
             <img src="images/camping.jpg" alt="">
