@@ -83,7 +83,10 @@
                                 Letraset sheets containing.
                             </p>
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <?php include '../controllers/cn.php'; ?>
+=======
+>>>>>>> d804d6c49bc74a1c8f6c2dbffdbf53e0fb73f4ba
 =======
 >>>>>>> d804d6c49bc74a1c8f6c2dbffdbf53e0fb73f4ba
                         </div>
