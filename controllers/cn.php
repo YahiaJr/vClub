@@ -4,6 +4,28 @@
     include_once "../models/login.php";
 
     if ($_GET) {
+
+//Login_Logic
+        if ($_GET['do'] == 'logined') {
+            //Member
+            if (isset($_POST['select'])) {
+                if ($_POST['select'] == 'Member') {
+                    $email = $_POST['email'];
+                    $password = $_POST['password'];
+                    $UserInfo = new login();
+                    $check = $UserInfo->login_member($email, $password);
+                    if ($check) {
+                        session_start();
+                        $_SESSION['email'] = $email;
+                        $_SESSION['password'] = $password;
+                        header("location:index_members.php");
+                    } else {
+                        header("location:index.php");
+                    }
+                }
+            }
+        }
+
         //Add_Contact_Messages##
         if ($_REQUEST['do'] == 'contact') {
             $c_name = $_POST['c_name'];
@@ -43,3 +65,6 @@
             $op->Add_member($fname, $lname, $email, $password, $birthdate, $phone, $m_sport);
         }
     }
+
+
+
