@@ -2,6 +2,7 @@
     include "../models/admin.php";
     include_once "../models/person.php";
     include_once "../models/login.php";
+    include_once "../models/app_user.php";
 
     if ($_GET) {
 
@@ -39,6 +40,12 @@
             }
             $op = new App_user();
             $op->Add_message($is_member, $c_name, $c_email, $c_message);
+        }
+
+        //Filtering_Time-Table##
+        if (isset($_POST['filtertt'])) {
+            $op = new App_user();
+            $op->filter();
         }
 
         //Add a member to database
