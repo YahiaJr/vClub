@@ -8,6 +8,7 @@
 
 //Login_Logic
         if ($_GET['do'] == 'logined') {
+            
             //Member
             if (isset($_POST['select'])) {
                 if ($_POST['select'] == 'Member') {
@@ -25,6 +26,24 @@
                     }
                 }
             }
+            
+            //Admin
+                if (isset($_POST['select'])) {
+                    if ($_POST['select'] == 'Admin') {
+                        $email = $_POST['email'];
+                        $password = $_POST['password'];
+                        $UserInfo = new login();
+                        $check = $UserInfo->login_admin($email, $password);
+                        if ($check) {
+                            session_start();
+                            $_SESSION['email'] = $email;
+                            $_SESSION['password'] = $password;
+                            header("location:index_admin.php");
+                        } else {
+                            header("location:index.php");
+                        }
+                    }
+                }
         }
 
         //Add_Contact_Messages##
@@ -32,7 +51,7 @@
             $c_name = $_POST['c_name'];
             $c_email = $_POST['c_email'];
             $c_message = $_POST['c_message'];
-            ##Differentiate Between Visitors & Logined Users
+            ##Differentiate Between Visitors & Members
             if (isset($_SESSION['email'])) {
                 $is_member = 1;
             } else {
