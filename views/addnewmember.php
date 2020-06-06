@@ -16,6 +16,9 @@
             <li>
                 <a href="addnewadmin.php"><span>A</span>dd new admin</a>
             </li>
+            <li>
+                <a href="addnewcoach.php"><span>A</span>dd new coach </a>
+            </li>
             <li class="selected">
                 <a href="addnewmember.php"><span>A</span>dd new Member </a>
             </li>
