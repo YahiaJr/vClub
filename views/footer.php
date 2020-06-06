@@ -37,9 +37,16 @@
                 case "search_admin.php":
                     echo '<a href="index_admin.php" id="logo"><img style="margin-top: -60px" src="images/logo.png" alt="logo"></a>';
                     break;
+                //Coach pages
+                case "index_coach.php":
+                case "contact_coach.php":
+                case "assign_coach.php":
+                case "list_coach.php":
+                    echo '<a href="index_coach.php" id="logo"><img style="margin-top: -60px" src="images/logo.png" alt="logo"></a>';
+                    break;
                 //default
                 default:
-                    echo '<a href="index.php" id="logo"><img style="margin-top: -60px" src="images/logo.png" alt="logo"></a>';
+                echo '<a href="index.php" id="logo"><img style="margin-top: -60px" src="images/logo.png" alt="logo"></a>';
             }
         ?>
     </div>
