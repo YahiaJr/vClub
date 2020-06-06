@@ -33,6 +33,7 @@
                 //admin_pages
                 case "index_admin.php":
                 case "addnewadmin.php":
+                case "addnewcoach.php":
                 case "addnewmember.php":
                 case "search_admin.php":
                     echo '<a href="index_admin.php" id="logo"><img style="margin-top: -60px" src="images/logo.png" alt="logo"></a>';
