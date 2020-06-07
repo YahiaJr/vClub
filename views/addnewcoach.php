@@ -2,8 +2,13 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Admin Membership Application</title>
+    <title>Add New Coach</title>
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <script>
+        function bob() {
+            alert('Coach registered successfully');
+        }
+    </script>
 </head>
 <body>
 <div class="header">
@@ -16,10 +21,10 @@
             <li>
                 <a href="addnewadmin.php"><span>A</span>dd new admin</a>
             </li>
-            <li>
+            <li class="selected">
                 <a href="addnewcoach.php"><span>A</span>dd new coach </a>
             </li>
-            <li class="selected">
+            <li>
                 <a href="addnewmember.php"><span>A</span>dd new Member </a>
             </li>
             <li>
@@ -35,34 +40,31 @@
         </ul>
     </div>
 </div>
-<div class="body">
+<div class="body" style="margin-bottom: -10px">
     <?php
         include '../controllers/cn.php';
     ?>
-    <div class="applications">
+    <div>
         <div>
             <div>
                 <div class="application">
-                    <h2>Admin Access: Membership Application</h2>
-                    <form action='index_admin.php?do=login' method='post'>
-                        <div>
+                    <h2>add new coach </h2>
+
+                    <form action='index_admin.php?do=add_new_coach' method='post'>
+                        <div style="margin-left: 225px">
                             <table>
                                 <tr>
-                                    <td><label for="fname"><span>F</span>irst Name:</label></td>
-                                    <td><input type="text" name="fname" required></td>
+                                    <td><label for="fname"><span>F</span>irst name:</label></td>
+                                    <td><input type="text" name="co_fname" required></td>
                                 </tr>
                                 <tr>
                                     <td><label for="lname"><span>L</span>ast name:</label></td>
-                                    <td><input type="text" name="lname" required></td>
+                                    <td><input type="text" name="co_lname" required></td>
                                 </tr>
                                 <tr>
-                                    <td><label for="email"><span>E</span>-Mail:</label></td>
-                                    <td><input type="email" name="email" required></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="m_sport"><span>S</span>port:</label></td>
+                                    <td><label for="co_sport"><span>S</span>port:</label></td>
                                     <td>
-                                        <select name="m_sport" class="custom-select"
+                                        <select name="co_sport" class="custom-select"
                                                 style="width: 250px; background-color:#9c9575">
                                             <option value="Swimming">Swimming</option>
                                             <option value="Football">Football</option>
@@ -70,28 +72,23 @@
                                         </select>
                                     </td>
                                 </tr>
-                            </table>
-                        </div>
-                        <div>
-                            <table>
+                                <td><label for="email"><span>E</span>mail:</label></td>
+                                <td><input type="email" name="co_email" required></td>
+                                </tr>
                                 <tr>
                                     <td><label for="password"><span>P</span>assword:</label></td>
-                                    <td><input type="password" name="password" required></td>
+                                    <td><input type="password" name="co_password" required></td>
                                 </tr>
                                 <tr>
-                                    <td><label for="birthdate"><span>B</span>irthdate:</label></td>
-                                    <td><input type="date" name="birthdate" required></td>
-                                </tr>
-                                <tr>
-                                    <td><label for="phone"><span>P</span>hone <span>N</span>umber:</label></td>
-                                    <td><input type="number" name="phone" required></td>
+                                    <td><label for="salary"><span>S</span>alary:</label></td>
+                                    <td><input type="numbers" name="co_salary" required></td>
                                 </tr>
                             </table>
+                            <input type="submit" id="submit" value="Register" style="margin-left: 200px;">
                         </div>
-                        <input type="submit" value="Sign Up" id="application-submit">
                     </form>
-
                 </div>
+
             </div>
         </div>
     </div>
@@ -99,5 +96,4 @@
 <?php include './footer.php'; ?>
 
 </body>
-
 </html>
