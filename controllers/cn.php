@@ -134,6 +134,25 @@
         $op = new coach();
         $op->mem_Filter();
     }
+
+    ##Rate_Best_Trainee
+    if ($_GET['do'] == 'rate') {
+        $b_email = $_POST['b_email'];
+        switch ($_POST['b_sport']) {
+            case 'Swimming':
+                $b_sport = "Swimming";
+                break;
+            case 'Football':
+                $b_sport = "Football";
+                break;
+            case 'Fitness':
+                $b_sport = "Fitness";
+                break;
+        }
+        $op = new coach();
+        $op->rate_Best($b_email, $b_sport);
+    }
 }
+
 
 
