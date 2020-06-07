@@ -3,6 +3,7 @@
     include_once "../models/person.php";
     include_once "../models/login.php";
     include_once "../models/app_user.php";
+    include_once "../models/coach.php";
 
     if ($_GET) {
 
@@ -123,5 +124,16 @@
     
                 $op = new admin();
                 $op->Add_admin($fname, $lname, $phone, $salary, $email, $pass);
-            }    
+            }
+            
+            
+
+//Coach_Logic
+    ##List_Members##
+    if (isset($_POST['filtermm'])) {
+        $op = new coach();
+        $op->mem_Filter();
     }
+}
+
+
