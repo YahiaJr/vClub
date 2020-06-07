@@ -126,7 +126,28 @@
                 $op->Add_admin($fname, $lname, $phone, $salary, $email, $pass);
             }
             
+        ##ADD_NEW_Coaches##
+        if ($_GET['do'] == 'add_new_coach') {
+            $fn = $_POST['co_fname'];
+            $ln = $_POST['co_lname'];
+            switch ($_POST['co_sport']) {
+                case 'Swimming':
+                    $co_sport = "Swimming";
+                    break;
+                case 'Football':
+                    $co_sport = "Football";
+                    break;
+                case 'Fitness':
+                    $co_sport = "Fitness";
+                    break;
+            }
+            $email = $_POST['co_email'];
+            $pass = $_POST['co_password'];
+            $salary = $_POST['co_salary'];
             
+            $op = new admin();
+            $op->Add_coach($fn, $ln, $co_sport, $email, $pass, $salary);
+        }
 
 //Coach_Logic
     ##List_Members##
@@ -153,6 +174,3 @@
         $op->rate_Best($b_email, $b_sport);
     }
 }
-
-
-

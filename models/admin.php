@@ -41,5 +41,14 @@
       VALUES ('$fname' , '$lname' , '$phone' , '$salary' , '$email' , '$password')";
             $val = mysqli_query($GLOBALS['conn'], $add_query);
         }
+
+        //creating new coaches
+        public function Add_coach($fname, $lname, $co_sport, $email, $password, $salary)
+        {
+
+            $add_query = "INSERT INTO `coach`(`co_fname`, `co_lname`, `co_sport`, `co_email`, `co_password`,`co_salary`)
+      VALUES ('$fname' , '$lname' , '$co_sport', '$email' , '$password', $salary )";
+            $val = mysqli_query($GLOBALS['conn'], $add_query);
+        }
     }
     ?>
