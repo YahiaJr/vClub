@@ -38,13 +38,31 @@
                 <div>
                     <h3 style="margin-top: 7px"><span>H</span>ey! <span>C</span>heck <span>O</span>ur <span>N</span>ews!
                     </h3>
-                    <p>
-                        Soon, we are going to release the next features in our club website that includes:<br><br>
-                        <strong style="margin-left: 9px">•</strong> Activities Time-table.<br>
-                        <strong style="margin-left: 9px">•</strong> Membership renewal Offers.<br>
-                        <strong style="margin-left: 9px">•</strong> Parties &amp Trips schedules<br>
-                        <strong style="margin-left: 9px">•</strong> Performance improvements.<br>
-                    </p>
+                    <?php
+                        $sql = 'SELECT `m_best` FROM `user` WHERE `email` = "' . $_SESSION['email'] . '"';
+                        if ($result = mysqli_query($GLOBALS['conn'], $sql)) {
+                            $row = mysqli_fetch_assoc($result);
+                            if ($row['m_best'] == 0) {
+                                echo '<p>
+                                    Soon, we are going to release the next features in our club website that includes:<br><br>
+                                    <strong style="margin-left: 9px">•</strong> Activities Time-table.<br>
+                                    <strong style="margin-left: 9px">•</strong> Membership renewal Offers.<br>
+                                    <strong style="margin-left: 9px">•</strong> Parties &amp Trips schedules<br>
+                                    <strong style="margin-left: 9px">•</strong> Performance improvements.<br>
+                                    </p>';
+                            } else {
+                                echo '
+                                             <p style="margin-top: -20px">
+                                                Soon, we are going to release the next features in our club website that includes:<br>
+                                                <strong style="margin-left: 9px">•</strong> Activities Time-table.<br>
+                                                <strong style="margin-left: 9px">•</strong> Membership renewal Offers.<br>
+                                            </p>
+                                            <h4><strong>Congratulations</strong>: <em>BEST in Class</em> </h4>
+                                            <br>
+                                            <img src="images/bic.png" alt="Best In Class" width="200px" height="115px" style="border:none;margin: -15px 47px">';
+                            }
+                        }
+                    ?>
                 </div>
             </div>
         </div>
