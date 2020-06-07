@@ -39,4 +39,21 @@
                 return false;
             }
         }
+
+        //coach_login_logic
+        public function login_coach($email, $password)
+        {
+            $this->email = $email;
+            $this->password = $password;
+
+            $sql = "SELECT * FROM `coach` WHERE co_email='$this->email' AND co_password ='$this->password' ";
+            $result = mysqli_query($GLOBALS['conn'], $sql);
+
+            if (mysqli_num_rows($result) > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
+    ?>

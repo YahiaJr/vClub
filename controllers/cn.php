@@ -44,6 +44,24 @@
                         }
                     }
                 }
+
+            //Coach
+            if (isset($_POST['select'])) {
+                if ($_POST['select'] == 'Coach') {
+                    $email = $_POST['email'];
+                    $password = $_POST['password'];
+                    $UserInfo = new login();
+                    $check = $UserInfo->login_coach($email, $password);
+                    if ($check) {
+                        session_start();
+                        $_SESSION['email'] = $email;
+                        $_SESSION['password'] = $password;
+                        header("location:index_coach.php");
+                    } else {
+                        header("location:index.php");
+                    }
+                }
+            }
         }
 //Visitor_Logic
         //Add_Contact_Messages##
@@ -107,6 +125,3 @@
                 $op->Add_admin($fname, $lname, $phone, $salary, $email, $pass);
             }    
     }
-
-
-
